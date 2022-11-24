@@ -1,0 +1,37 @@
+.searchWrap {
+  background-color: #bdddea;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .searchBox {
+    .title {
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.5;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .inputWrap {
+      position: relative;
+      display: flex;
+      .inputBox {
+        width: 300px;
+        height: 30px;
+        border-radius: 25px;
+        padding: 10px 38px;
+        font-size: 15px;
+      }
+      .iconStyle {
+        color: rgb(146, 143, 143);
+        position: absolute;
+        top: 19px;
+        left: 16px;
+      }
+      .iconColor {
+        color: white;
+      }
+    }
+  }
+}
