@@ -1,10 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 import './Search.scss';
 
 const Search = () => {
+  axios
+    .get('http://localhost:4000/sick')
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(() => {
+      console.log('fail');
+    });
+
   return (
     <div className="searchWrap">
       <div className="searchBox">

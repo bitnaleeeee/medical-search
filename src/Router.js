@@ -1,6 +1,6 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Search from "./Page/Search";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Search from './Page/Search';
 
 function Router() {
   return (
