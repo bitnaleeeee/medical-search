@@ -33,5 +33,16 @@
         color: white;
       }
     }
+    .dataWrap {
+      margin-top: 7px;
+      width: 382px;
+      height: 200px;
+      background-color: #fafafa;
+      border-radius: 25px;
+
+      &.on {
+        display: none;
+      }
+    }
   }
 }
