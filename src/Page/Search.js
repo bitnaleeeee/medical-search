@@ -8,8 +8,8 @@ import './Search.scss';
 const Search = () => {
   axios
     .get('http://localhost:4000/sick')
-    .then(res => {
-      console.log(res.data);
+    .then(respon => {
+      console.log(respon.data);
     })
     .catch(() => {
       console.log('fail');
