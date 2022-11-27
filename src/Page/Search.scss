@@ -34,11 +34,13 @@
       }
     }
     .dataWrap {
+      padding: 20px 15px;
       margin-top: 7px;
       width: 382px;
       height: 200px;
       background-color: #fafafa;
       border-radius: 25px;
+      line-height: 1.5;
 
       &.on {
         display: none;

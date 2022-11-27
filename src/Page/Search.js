@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -8,11 +7,12 @@ import './Search.scss';
 
 const Search = () => {
   const [data, setData] = useState();
-  const getdata = () => {
+  const getdata = params => {
     axios
-      .get('http://localhost:4000/sick')
+      .get(`http://localhost:4000/sick?q=${params}`)
       .then(respon => {
         setData(respon.data);
+        console.log(data);
         console.info('calling api');
       })
       .catch(() => {
@@ -22,11 +22,12 @@ const Search = () => {
 
   const change = e => {
     if (e.target.value.length > 0) {
-      getdata();
+      getdata(e.target.value);
     } else {
       setData(null);
     }
   };
+
   return (
     <div className="searchWrap">
       <div className="searchBox">
@@ -44,6 +45,11 @@ const Search = () => {
         </div>
 
         <div className={data ? 'dataWrap' : 'dataWrap on'}>
+          {data &&
+            data.map((item, idx) => {
+              return idx < 8 ? <div key={idx}> {item.sickNm} </div> : null;
+            })}
+
           <div className="upper"> </div>
           <div className="under"> </div>
         </div>
