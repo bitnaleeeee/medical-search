@@ -8,7 +8,6 @@ import './Search.scss';
 
 const Search = () => {
   const [data, setData] = useState();
-
   const getdata = () => {
     axios
       .get('http://localhost:4000/sick')
@@ -21,10 +20,13 @@ const Search = () => {
       });
   };
 
-  const change = () => {
-    getdata();
+  const change = e => {
+    if (e.target.value.length > 0) {
+      getdata();
+    } else {
+      setData(null);
+    }
   };
-
   return (
     <div className="searchWrap">
       <div className="searchBox">
@@ -40,6 +42,7 @@ const Search = () => {
           />
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
         </div>
+
         <div className={data ? 'dataWrap' : 'dataWrap on'}>
           <div className="upper"> </div>
           <div className="under"> </div>
