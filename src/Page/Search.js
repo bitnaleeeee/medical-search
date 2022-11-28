@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-
 import './Search.scss';
 
 const Search = () => {
@@ -45,11 +44,11 @@ const Search = () => {
         </div>
 
         <div className={data ? 'dataWrap' : 'dataWrap on'}>
-          {data &&
-            data.map((item, idx) => {
-              return idx < 8 ? <div key={idx}> {item.sickNm} </div> : null;
-            })}
-
+          {data && data.length !== 0
+            ? data.map((item, idx) => {
+                return idx < 8 ? <div key={idx}> {item.sickNm} </div> : null;
+              })
+            : '검색어없음'}
           <div className="upper"> </div>
           <div className="under"> </div>
         </div>

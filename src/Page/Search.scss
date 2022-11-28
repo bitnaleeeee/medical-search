@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   .searchBox {
     .title {
       font-size: 26px;
@@ -41,7 +40,6 @@
       background-color: #fafafa;
       border-radius: 25px;
       line-height: 1.5;
-
       &.on {
         display: none;
       }
