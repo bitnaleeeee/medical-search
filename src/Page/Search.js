@@ -11,7 +11,7 @@ const Search = () => {
     axios
       .get(`http://localhost:4000/sick?q=${params}`)
       .then(respon => {
-        stringBold(respon, params);
+        bold(respon, params);
         console.info('calling api');
       })
       .catch(() => {
@@ -19,7 +19,7 @@ const Search = () => {
       });
   };
 
-  const stringBold = (respon, params) => {
+  const bold = (respon, params) => {
     let newData = [];
     let responData = respon.data;
 
