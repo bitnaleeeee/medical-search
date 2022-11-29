@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Search.scss';
 
 const Search = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
 
   const getdata = params => {
     axios
@@ -20,15 +20,16 @@ const Search = () => {
   };
 
   const stringBold = (respon, params) => {
+    let newData = [];
     let responData = respon.data;
 
-    let newData = [];
-
     responData.forEach(function (item) {
-      let inputText = params;
-      let text = item.sickNm;
-      let regex = new RegExp(inputText, 'gi');
-      let result = text.replace(regex, '<strong>' + inputText + '</strong>');
+      let regex = new RegExp(params, 'gi');
+      let result = item.sickNm.replace(
+        regex,
+        '<strong>' + params + '</strong>'
+      );
+
       newData.push({
         sickNm: result,
       });
