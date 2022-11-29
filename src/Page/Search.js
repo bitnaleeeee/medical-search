@@ -5,18 +5,35 @@ import axios from 'axios';
 import './Search.scss';
 
 const Search = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
+
   const getdata = params => {
     axios
       .get(`http://localhost:4000/sick?q=${params}`)
       .then(respon => {
-        setData(respon.data);
-        console.log(data);
+        stringBold(respon, params);
         console.info('calling api');
       })
       .catch(() => {
         console.log('fail');
       });
+  };
+
+  const stringBold = (respon, params) => {
+    let responData = respon.data;
+
+    let newData = [];
+
+    responData.forEach(function (item) {
+      let inputText = params;
+      let text = item.sickNm;
+      let regex = new RegExp(inputText, 'gi');
+      let result = text.replace(regex, '<strong>' + inputText + '</strong>');
+      newData.push({
+        sickNm: result,
+      });
+    });
+    setData(newData);
   };
 
   const change = e => {
@@ -46,9 +63,14 @@ const Search = () => {
         <div className={data ? 'dataWrap' : 'dataWrap on'}>
           {data && data.length !== 0
             ? data.map((item, idx) => {
-                return idx < 8 ? <div key={idx}> {item.sickNm} </div> : null;
+                return idx < 8 ? (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: item.sickNm }}
+                    key={idx}
+                  />
+                ) : null;
               })
-            : '검색어없음'}
+            : '검색어 없음'}
           <div className="upper"> </div>
           <div className="under"> </div>
         </div>
