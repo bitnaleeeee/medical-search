@@ -38,7 +38,9 @@ const Search = () => {
 
   const change = e => {
     if (e.target.value.length !== 0) {
-      getdata(e.target.value);
+      if (e.keyCode !== 32 && e.keyCode !== 8) {
+        getdata(e.target.value);
+      }
     } else {
       setData(null);
     }
