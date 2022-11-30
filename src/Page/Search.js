@@ -37,10 +37,12 @@ const Search = () => {
   };
 
   const change = e => {
-    if (e.target.value.length !== 0) {
-      if (e.keyCode !== 32 && e.keyCode !== 8) {
-        getdata(e.target.value);
+    if (e.target.value.length > 0) {
+      let blank_pattern = /^\s+|\s+$/g;
+      if (e.target.value.replace(blank_pattern, '') === '') {
+        return false;
       }
+      getdata(e.target.value);
     } else {
       setData(null);
     }
