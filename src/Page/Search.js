@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './Search.scss';
-import useDebounce from '../useDebounce';
+import { debounce } from 'lodash';
+
+// import useDebounce from '../useDebounce';
 
 const Search = () => {
   const [data, setData] = useState();
@@ -38,7 +40,7 @@ const Search = () => {
     });
     setData(newData);
   };
-  const change = e => {
+  const change = debounce(e => {
     if (e.target.value.length > 0) {
       let blank_pattern = /^\s+|\s+$/g;
       if (e.target.value.replace(blank_pattern, '') === '') {
@@ -48,7 +50,7 @@ const Search = () => {
     } else {
       setData(null);
     }
-  };
+  }, 900);
 
   return (
     <div className="searchWrap">
