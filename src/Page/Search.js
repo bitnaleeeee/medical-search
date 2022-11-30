@@ -29,7 +29,6 @@ const Search = () => {
         regex,
         '<strong>' + params + '</strong>'
       );
-
       newData.push({
         sickNm: result,
       });
@@ -38,7 +37,7 @@ const Search = () => {
   };
 
   const change = e => {
-    if (e.target.value.length > 0) {
+    if (e.target.value.length !== 0) {
       getdata(e.target.value);
     } else {
       setData(null);
@@ -56,7 +55,7 @@ const Search = () => {
           <input
             className="inputBox"
             placeholder="질환명을 입력해주세요"
-            onChange={change}
+            onKeyUp={change}
           />
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
         </div>
