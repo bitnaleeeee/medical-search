@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './Search.scss';
+import useDebounce from '../useDebounce';
 
 const Search = () => {
   const [data, setData] = useState();
+
+  // const debounceVal = useDebounce();
 
   const getdata = params => {
     axios
@@ -35,7 +38,6 @@ const Search = () => {
     });
     setData(newData);
   };
-
   const change = e => {
     if (e.target.value.length > 0) {
       let blank_pattern = /^\s+|\s+$/g;
