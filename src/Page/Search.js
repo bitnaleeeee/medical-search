@@ -77,16 +77,14 @@ const Search = () => {
         </div>
         <div className={toggle ? 'dataWrap' : 'dataWrap hidden'}>
           <div className={data ? 'recommendArr hidden' : 'recommendArr'}>
-            <div className="recommendText">
-              {console.log(data)}
-              추천검색어로 검색해보세요
-            </div>
+            <div className="recommendText">추천검색어로 검색해보세요</div>
             {recommendArr.map((item, idx) => {
               return <span key={idx}>{item}</span>;
             })}
           </div>
           <div className="upper">{inputText}</div>
-          <div className={data ? 'dataList' : 'dataList hidden'}>
+          <div className={data && data.length ? 'dataList' : 'dataList hidden'}>
+            {console.log(data)}
             <div className="under">추천 검색어</div>
             {data && data.length !== 0
               ? data.map((item, idx) => {
