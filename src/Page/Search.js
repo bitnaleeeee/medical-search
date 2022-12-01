@@ -8,16 +8,12 @@ import { debounce } from 'lodash';
 const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();
-  const [inform, setInform] = useState();
   const [toggle, setToggle] = useState(false);
 
   const getdata = params => {
     axios
       .get(`http://localhost:4000/sick?q=${params}`)
       .then(respon => {
-        if (respon.data.length === 0) {
-          setInform(null);
-        }
         bold(respon, params);
         console.info('calling api');
       })
@@ -52,7 +48,6 @@ const Search = () => {
         return false;
       }
       getdata(e.target.value);
-      setInform('추천 검색어');
     } else {
       setData(null);
     }
@@ -81,24 +76,29 @@ const Search = () => {
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
         </div>
         <div className={toggle ? 'dataWrap' : 'dataWrap hidden'}>
-          <div className="recommendArr">
-            <div className="recommendText">추천 검색어로 검색해보세요</div>
+          <div className={data ? 'recommendArr hidden' : 'recommendArr'}>
+            <div className="recommendText">
+              {console.log(data)}
+              추천검색어로 검색해보세요
+            </div>
             {recommendArr.map((item, idx) => {
               return <span key={idx}>{item}</span>;
             })}
           </div>
           <div className="upper">{inputText}</div>
-          <div className="under">{inform}</div>
-          {data && data.length !== 0
-            ? data.map((item, idx) => {
-                return idx < 5 ? (
-                  <div
-                    dangerouslySetInnerHTML={{ __html: item.sickNm }}
-                    key={idx}
-                  />
-                ) : null;
-              })
-            : ''}
+          <div className={data ? 'dataList' : 'dataList hidden'}>
+            <div className="under">추천 검색어</div>
+            {data && data.length !== 0
+              ? data.map((item, idx) => {
+                  return idx < 5 ? (
+                    <div
+                      dangerouslySetInnerHTML={{ __html: item.sickNm }}
+                      key={idx}
+                    />
+                  ) : null;
+                })
+              : ''}
+          </div>
         </div>
       </div>
     </div>

@@ -63,6 +63,9 @@
         display: none;
       }
       .recommendArr {
+        &.hidden {
+          display: none;
+        }
         .recommendText {
           margin: 2px 5px;
           color: #969393;
@@ -81,9 +84,15 @@
       .upper {
         font-weight: bold;
       }
-      .under {
-        color: #969393;
-        font-size: 12px;
+
+      .dataList {
+        &.hidden {
+          display: none;
+        }
+        .under {
+          color: #969393;
+          font-size: 12px;
+        }
       }
     }
   }
