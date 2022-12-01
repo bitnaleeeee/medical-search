@@ -31,18 +31,51 @@
       .iconColor {
         color: white;
       }
+
+      .searchBtn {
+        position: absolute;
+        top: 7px;
+        right: 8px;
+        padding: 0;
+        border-radius: 50%;
+        border: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        background-color: blueviolet;
+        .iconStyle {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #fff;
+        }
+      }
     }
     .dataWrap {
       padding: 20px 15px;
       margin-top: 7px;
-      width: 382px;
-      height: 200px;
+      box-sizing: border-box;
+      width: 100%;
       background-color: #fafafa;
       border-radius: 25px;
       line-height: 1.5;
       &.on {
         display: none;
       }
+      .upper {
+        font-weight: bold;
+      }
+      .under {
+        font-size: 12px;
+        color: #808e94;
+      }
     }
   }
 }
+// const example = (e) => {
+//   setExample(e.target.value)
+//  }
+
+//  useEffect(() => {
+//    console.log(example);
+//  }, [example]);

@@ -5,13 +5,9 @@ import axios from 'axios';
 import './Search.scss';
 import { debounce } from 'lodash';
 
-// import useDebounce from '../useDebounce';
-
 const Search = () => {
   const [data, setData] = useState();
-
-  // const debounceVal = useDebounce();
-
+  const [inputText, setInputText] = useState();
   const getdata = params => {
     axios
       .get(`http://localhost:4000/sick?q=${params}`)
@@ -41,6 +37,8 @@ const Search = () => {
     setData(newData);
   };
   const change = debounce(e => {
+    setInputText(e.target.value);
+
     if (e.target.value.length > 0) {
       let blank_pattern = /^\s+|\s+$/g;
       if (e.target.value.replace(blank_pattern, '') === '') {
@@ -50,7 +48,7 @@ const Search = () => {
     } else {
       setData(null);
     }
-  }, 900);
+  }, 500);
 
   return (
     <div className="searchWrap">
@@ -69,9 +67,12 @@ const Search = () => {
         </div>
 
         <div className={data ? 'dataWrap' : 'dataWrap on'}>
+          <div className="upper">{inputText}</div>
+
+          <div className="under">추천 검색어</div>
           {data && data.length !== 0
             ? data.map((item, idx) => {
-                return idx < 8 ? (
+                return idx < 5 ? (
                   <div
                     dangerouslySetInnerHTML={{ __html: item.sickNm }}
                     key={idx}
@@ -79,8 +80,6 @@ const Search = () => {
                 ) : null;
               })
             : '검색어 없음'}
-          <div className="upper"> </div>
-          <div className="under"> </div>
         </div>
       </div>
     </div>
