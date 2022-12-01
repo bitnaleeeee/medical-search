@@ -9,6 +9,8 @@ const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();
   const [inform, setInform] = useState();
+  const [toggle, setToggle] = useState(false);
+
   const getdata = params => {
     axios
       .get(`http://localhost:4000/sick?q=${params}`)
@@ -56,11 +58,15 @@ const Search = () => {
     }
   }, 500);
 
-  const click = () => {
-    console.log(2);
+  const click = e => {
+    if (e.target.className === 'inputBox') {
+      setToggle(true);
+    } else {
+      setToggle(false);
+    }
   };
   return (
-    <div className="searchWrap">
+    <div className="searchWrap" onClick={click}>
       <div className="searchBox">
         <div className="title">
           국내 모든 임상시험 검색하고 <br />
@@ -70,13 +76,17 @@ const Search = () => {
           <input
             className="inputBox"
             placeholder="질환명을 입력해주세요"
-            onClick={click}
             onKeyUp={change}
           />
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
         </div>
-
-        <div className={data ? 'dataWrap' : 'dataWrap on'}>
+        <div className={toggle ? 'dataWrap' : 'dataWrap hidden'}>
+          <div className="recommendArr">
+            <div className="recommendText">추천 검색어로 검색해보세요</div>
+            {recommendArr.map((item, idx) => {
+              return <span key={idx}>{item}</span>;
+            })}
+          </div>
           <div className="upper">{inputText}</div>
           <div className="under">{inform}</div>
           {data && data.length !== 0
@@ -94,4 +104,7 @@ const Search = () => {
     </div>
   );
 };
+
+const recommendArr = ['B형 간염', '비만', '관절염', '우울증', '식도염'];
+
 export default Search;
