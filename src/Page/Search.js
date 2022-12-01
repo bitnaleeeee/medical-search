@@ -8,10 +8,14 @@ import { debounce } from 'lodash';
 const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();
+  const [inform, setInform] = useState();
   const getdata = params => {
     axios
       .get(`http://localhost:4000/sick?q=${params}`)
       .then(respon => {
+        if (respon.data.length === 0) {
+          setInform(null);
+        }
         bold(respon, params);
         console.info('calling api');
       })
@@ -37,6 +41,7 @@ const Search = () => {
     setData(newData);
   };
   const change = debounce(e => {
+    console.log(e.target.value.length);
     setInputText(e.target.value);
 
     if (e.target.value.length > 0) {
@@ -45,11 +50,15 @@ const Search = () => {
         return false;
       }
       getdata(e.target.value);
+      setInform('추천 검색어');
     } else {
       setData(null);
     }
   }, 500);
 
+  const click = () => {
+    console.log(2);
+  };
   return (
     <div className="searchWrap">
       <div className="searchBox">
@@ -61,6 +70,7 @@ const Search = () => {
           <input
             className="inputBox"
             placeholder="질환명을 입력해주세요"
+            onClick={click}
             onKeyUp={change}
           />
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
@@ -68,8 +78,7 @@ const Search = () => {
 
         <div className={data ? 'dataWrap' : 'dataWrap on'}>
           <div className="upper">{inputText}</div>
-
-          <div className="under">추천 검색어</div>
+          <div className="under">{inform}</div>
           {data && data.length !== 0
             ? data.map((item, idx) => {
                 return idx < 5 ? (
@@ -79,7 +88,7 @@ const Search = () => {
                   />
                 ) : null;
               })
-            : '검색어 없음'}
+            : ''}
         </div>
       </div>
     </div>
