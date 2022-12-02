@@ -9,6 +9,7 @@ const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();
   const [toggle, setToggle] = useState(false);
+  const [tabIndex, setTabIndex] = useState(0);
 
   const getdata = params => {
     axios
@@ -39,7 +40,6 @@ const Search = () => {
     setData(newData);
   };
   const change = debounce(e => {
-    console.log(e.target.value.length);
     setInputText(e.target.value);
 
     if (e.target.value.length > 0) {
@@ -51,7 +51,7 @@ const Search = () => {
     } else {
       setData(null);
     }
-  }, 500);
+  }, 900);
 
   const click = e => {
     if (e.target.className === 'inputBox') {
@@ -60,6 +60,19 @@ const Search = () => {
       setToggle(false);
     }
   };
+
+  const keyDown = e => {
+    if (e.keyCode === 40) {
+      setTabIndex(tabIndex + 1);
+      if (tabIndex >= 6) {
+        setTabIndex(0);
+      }
+    } else if (e.keyCode === 38) {
+      setTabIndex(tabIndex - 1);
+      console.log(tabIndex);
+    }
+  };
+
   return (
     <div className="searchWrap" onClick={click}>
       <div className="searchBox">
@@ -72,6 +85,7 @@ const Search = () => {
             className="inputBox"
             placeholder="질환명을 입력해주세요"
             onKeyUp={change}
+            onKeyDown={keyDown}
           />
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
         </div>
@@ -82,14 +96,16 @@ const Search = () => {
               return <span key={idx}>{item}</span>;
             })}
           </div>
-          <div className="upper">{inputText}</div>
+          <div className={tabIndex === 5 ? 'upper on' : 'upper'}>
+            {inputText}
+          </div>
           <div className={data && data.length ? 'dataList' : 'dataList hidden'}>
-            {console.log(data)}
             <div className="under">추천 검색어</div>
             {data && data.length !== 0
               ? data.map((item, idx) => {
                   return idx < 5 ? (
                     <div
+                      className={idx === tabIndex ? 'on' : null}
                       dangerouslySetInnerHTML={{ __html: item.sickNm }}
                       key={idx}
                     />

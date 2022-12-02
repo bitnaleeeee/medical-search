@@ -83,6 +83,9 @@
       }
       .upper {
         font-weight: bold;
+        &.on {
+          background-color: #f2f2f1;
+        }
       }
 
       .dataList {
@@ -92,6 +95,9 @@
         .under {
           color: #969393;
           font-size: 12px;
+        }
+        .on {
+          background-color: #f2f2f1;
         }
       }
     }
