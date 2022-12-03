@@ -9,7 +9,7 @@ const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();
   const [toggle, setToggle] = useState(false);
-  const [tabIndex, setTabIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(4);
 
   const getdata = params => {
     axios
@@ -63,16 +63,21 @@ const Search = () => {
 
   const keyDown = e => {
     if (e.keyCode === 40) {
+      console.log(tabIndex);
+
       setTabIndex(tabIndex + 1);
       if (tabIndex >= 6) {
         setTabIndex(0);
       }
     } else if (e.keyCode === 38) {
-      setTabIndex(tabIndex - 1);
       console.log(tabIndex);
+
+      setTabIndex(tabIndex - 1);
+      if (tabIndex === 0) {
+        setTabIndex(5);
+      }
     }
   };
-
   return (
     <div className="searchWrap" onClick={click}>
       <div className="searchBox">
@@ -96,7 +101,9 @@ const Search = () => {
               return <span key={idx}>{item}</span>;
             })}
           </div>
-          <div className={tabIndex === 5 ? 'upper on' : 'upper'}>
+          <div
+            className={tabIndex === 5 || tabIndex === -1 ? 'upper on' : 'upper'}
+          >
             {inputText}
           </div>
           <div className={data && data.length ? 'dataList' : 'dataList hidden'}>
