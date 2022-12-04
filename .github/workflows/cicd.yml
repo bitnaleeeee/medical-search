@@ -1,0 +1,16 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: npm ci
+      - run: npm run test
+      - run: echo SUCCESS
