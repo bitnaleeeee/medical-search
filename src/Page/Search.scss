@@ -67,7 +67,7 @@
           display: none;
         }
         .recommendText {
-          margin: 2px 5px;
+          margin: 6px 0 2px;
           color: #969393;
           font-size: 12px;
           margin-bottom: 15px;
@@ -82,6 +82,7 @@
         }
       }
       .upper {
+        cursor: pointer;
         font-weight: bold;
         &.on {
           background-color: #f2f2f1;
@@ -89,6 +90,7 @@
       }
 
       .dataList {
+        cursor: pointer;
         &.hidden {
           display: none;
         }
@@ -98,6 +100,22 @@
         }
         .on {
           background-color: #f2f2f1;
+        }
+      }
+      .recent {
+        font-size: 14px;
+        &.hidden {
+          display: none;
+        }
+        .recentTitle {
+          color: #969393;
+          font-size: 12px;
+        }
+        .icon {
+          color: #969393;
+        }
+        .text {
+          margin-left: 4px;
         }
       }
     }

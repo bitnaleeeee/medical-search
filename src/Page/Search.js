@@ -5,6 +5,11 @@ import axios from 'axios';
 import './Search.scss';
 import { debounce } from 'lodash';
 
+// const recentData = localStorage.getItem('recentData');
+
+let recentStr = ''; // 최근검색어 문자열
+let recentArr = JSON.parse(localStorage.getItem('recentData')) || [];
+
 const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();
@@ -76,6 +81,16 @@ const Search = () => {
       }
     }
   };
+
+  const recentClick = e => {
+    let str = e.target.innerText;
+
+    recentArr.push(str);
+
+    recentStr = JSON.stringify(recentArr);
+
+    localStorage.setItem('recentData', recentStr);
+  };
   return (
     <div className="searchWrap" onClick={click}>
       <div className="searchBox">
@@ -93,6 +108,23 @@ const Search = () => {
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
         </div>
         <div className={toggle ? 'dataWrap' : 'dataWrap hidden'}>
+          <div className={data ? 'recent hidden' : 'recent'}>
+            <div className="recentTitle">최근 검색어</div>
+            {recentArr &&
+              recentArr.map((item, idx) => {
+                if (idx < 3) {
+                  return (
+                    <div key={idx}>
+                      <FontAwesomeIcon
+                        className="icon"
+                        icon={faMagnifyingGlass}
+                      />
+                      <span className="text">{item}</span>
+                    </div>
+                  );
+                }
+              })}
+          </div>
           <div className={data ? 'recommendArr hidden' : 'recommendArr'}>
             <div className="recommendText">추천검색어로 검색해보세요</div>
             {recommendArr.map((item, idx) => {
@@ -101,11 +133,15 @@ const Search = () => {
           </div>
 
           <div
+            onClick={recentClick}
             className={tabIndex === 5 || tabIndex === -1 ? 'upper on' : 'upper'}
           >
             {inputText}
           </div>
-          <div className={data && data.length ? 'dataList' : 'dataList hidden'}>
+          <div
+            onClick={recentClick}
+            className={data && data.length ? 'dataList' : 'dataList hidden'}
+          >
             <div className="under">추천 검색어</div>
             {data && data.length !== 0
               ? data.map((item, idx) => {
