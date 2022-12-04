@@ -5,9 +5,7 @@ import axios from 'axios';
 import './Search.scss';
 import { debounce } from 'lodash';
 
-// const recentData = localStorage.getItem('recentData');
-
-let recentStr = ''; // 최근검색어 문자열
+let recentStr = '';
 let recentArr = JSON.parse(localStorage.getItem('recentData')) || [];
 
 const Search = () => {
@@ -122,6 +120,8 @@ const Search = () => {
                       <span className="text">{item}</span>
                     </div>
                   );
+                } else {
+                  return null;
                 }
               })}
           </div>
@@ -136,6 +136,10 @@ const Search = () => {
             onClick={recentClick}
             className={tabIndex === 5 || tabIndex === -1 ? 'upper on' : 'upper'}
           >
+            <FontAwesomeIcon
+              className={inputText ? 'iconStyle' : 'iconStyle hidden'}
+              icon={faMagnifyingGlass}
+            />
             {inputText}
           </div>
           <div
@@ -146,11 +150,17 @@ const Search = () => {
             {data && data.length !== 0
               ? data.map((item, idx) => {
                   return idx < 5 ? (
-                    <div
-                      className={idx === tabIndex ? 'on' : null}
-                      dangerouslySetInnerHTML={{ __html: item.sickNm }}
-                      key={idx}
-                    />
+                    <div className="item">
+                      <FontAwesomeIcon
+                        className="iconStyle"
+                        icon={faMagnifyingGlass}
+                      />
+                      <span
+                        className={idx === tabIndex ? ' on' : null}
+                        dangerouslySetInnerHTML={{ __html: item.sickNm }}
+                        key={idx}
+                      />
+                    </div>
                   ) : null;
                 })
               : ''}
