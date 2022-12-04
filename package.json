@@ -22,10 +22,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "./node_modules/react-scripts/bin/react-scripts.js start",
+    "start:prod": "pushstate-server build",
+    "build": "./node_modules/react-scripts/bin/react-scripts.js build",
+    "test": "./node_modules/react-scripts/bin/react-scripts.js test --env=jsdom",
+    "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
+    "server": "cd client/api && pm2 start server.js --watch",
+    "proxy": "http://128.199.139.144:3000"
   },
   "eslintConfig": {
     "extends": [
