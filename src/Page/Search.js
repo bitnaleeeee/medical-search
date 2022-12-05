@@ -4,10 +4,6 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './Search.scss';
 import { debounce } from 'lodash';
-
-let recentStr = '';
-let recentArr = JSON.parse(localStorage.getItem('recentData')) || [];
-
 const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();
@@ -170,7 +166,8 @@ const Search = () => {
     </div>
   );
 };
-
+let recentStr = '';
+let recentArr = JSON.parse(localStorage.getItem('recentData')) || [];
 const recommendArr = ['B형 간염', '비만', '관절염', '우울증', '식도염'];
 
 export default Search;

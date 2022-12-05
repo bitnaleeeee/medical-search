@@ -12,5 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - run: npm ci
-      - run: npm run Search
+      - run: npm run test
       - run: echo SUCCESS
