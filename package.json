@@ -16,6 +16,8 @@
     "react-dom": "^18.2.0",
     "react-native-web": "^0.18.10",
     "react-router-dom": "^6.4.3",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.56.1",
     "styled-components": "^5.3.6",
     "styled-reset": "^4.4.2"
   },
@@ -42,5 +44,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.0"
   }
 }
