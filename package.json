@@ -14,6 +14,7 @@
     "axios": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-native-web": "^0.18.10",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6",
@@ -58,7 +59,6 @@
     "react-query": "^3.39.2"
   },
   "jest": {
-    "preset": "react-native",
-    "testRegex": "(/tests/.*|(\\.|/)(test))\\.js$"
+    "preset": "react-native"
   }
 }
