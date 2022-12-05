@@ -16,19 +16,14 @@
     "react-dom": "^18.2.0",
     "react-native-web": "^0.18.10",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6",
-    "styled-reset": "^4.4.2",
-    "web-vitals": "^2.1.4"
+    "styled-reset": "^4.4.2"
   },
   "scripts": {
-    "start": "./node_modules/react-scripts/bin/react-scripts.js start",
-    "start:prod": "pushstate-server build",
-    "build": "./node_modules/react-scripts/bin/react-scripts.js build",
-    "test": "jest",
-    "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
-    "server": "cd client/api && pm2 start server.js --watch",
-    "proxy": "http://128.199.139.144:3000"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,19 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.5",
-    "@babel/preset-env": "^7.20.2",
-    "babel-jest": "^29.3.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "jest": "^27.5.1",
-    "prettier": "^2.7.1",
-    "react-query": "^3.39.2"
-  },
-  "jest": {
-    "preset": "react-native",
-    "testRegex": "(/tests/.*|(\\.|/)(test))\\.js$"
   }
 }
