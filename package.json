@@ -54,6 +54,6 @@
     "react-query": "^3.39.2"
   },
   "jest": {
-    "preset": "react-native"
+    "default": "react-native"
   }
 }
