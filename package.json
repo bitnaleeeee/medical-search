@@ -48,12 +48,16 @@
     ]
   },
   "devDependencies": {
+    "jest": "29.3.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
     "react-query": "^3.39.2"
   },
+  "script": {
+    "test": "jest"
+  },
   "jest": {
-    "default": "react-native"
+    "testEnvironment": "jest-environment-node"
   }
 }
