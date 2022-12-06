@@ -110,6 +110,22 @@ const change = debounce(e => {
 입력창 `input`태그에 값을 입력할때마다 이벤트를 발생시켜 API이 포함된 로직을 호출하지 않도록 `Debounce ` 를 통해 연이어 호출되는 함수들 중 가장 마지막 함수만 호출되도록 작성하였습니다.
 이를 통해 클라이언트와 서버에서 불필요한 AIP 호출 횟수를 줄였습니다.
 
+```javascript
+const getdata = params => {
+  axios
+    .get(`http://localhost:4000/sick?q=${params}`)
+    .then(respon => {
+      bold(respon, params);
+      console.info('calling api');
+    })
+    .catch(() => {
+      console.log('fail');
+    });
+};
+```
+
+사용자가 입력한 텍스트 값이 존재할때 최종 입력 텍스트를 `getdata` 함수의 인자로 받아 `API`를 호출한 후 호출시 c `console`창에 calling api 가 보여지도록 작성하였습니다.
+
 </br>
 
 - ### API 호출별로 로컬 캐싱 구현
