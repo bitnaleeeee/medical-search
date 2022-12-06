@@ -14,6 +14,7 @@ const Search = () => {
   const getdata = params => {
     axios
       .get(`http://localhost:4000/sick?q=${params}`)
+      //http://13.124.249.111:4000/sick?q=${params}
       .then(respon => {
         bold(respon, params);
         console.info('calling api');
@@ -102,8 +103,21 @@ const Search = () => {
           />
           <FontAwesomeIcon className="iconStyle" icon={faMagnifyingGlass} />
         </div>
+
         <div className={toggle ? 'dataWrap' : 'dataWrap hidden'}>
           <div className={data ? 'recent hidden' : 'recent'}>
+            <div
+              onClick={recentClick}
+              className={
+                tabIndex === 5 || tabIndex === -1 ? 'upper on' : 'upper'
+              }
+            >
+              <FontAwesomeIcon
+                className={inputText ? 'iconStyle' : 'iconStyle hidden'}
+                icon={faMagnifyingGlass}
+              />
+              {inputText}
+            </div>
             <div className="recentTitle">최근 검색어</div>
             {recentArr &&
               recentArr.map((item, idx) => {
@@ -127,17 +141,6 @@ const Search = () => {
             {recommendArr.map((item, idx) => {
               return <span key={idx}>{item}</span>;
             })}
-          </div>
-
-          <div
-            onClick={recentClick}
-            className={tabIndex === 5 || tabIndex === -1 ? 'upper on' : 'upper'}
-          >
-            <FontAwesomeIcon
-              className={inputText ? 'iconStyle' : 'iconStyle hidden'}
-              icon={faMagnifyingGlass}
-            />
-            {inputText}
           </div>
           <div
             onClick={recentClick}
