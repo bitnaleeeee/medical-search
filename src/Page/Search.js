@@ -13,8 +13,7 @@ const Search = () => {
 
   const getdata = params => {
     axios
-      .get(`http://localhost:4000/sick?q=${params}`)
-      //http://13.124.249.111:4000/sick?q=${params}
+      .get(`/http://13.124.249.111:4000/sick?q=${params}`)
       .then(respon => {
         bold(respon, params);
         console.info('calling api');
