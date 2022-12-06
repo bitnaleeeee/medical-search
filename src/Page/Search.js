@@ -4,6 +4,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './Search.scss';
 import { debounce } from 'lodash';
+
 const Search = () => {
   const [data, setData] = useState();
   const [inputText, setInputText] = useState();

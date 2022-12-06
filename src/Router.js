@@ -6,7 +6,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Search />} />
+        <Route path="/medical-search" element={<Search />} />
       </Routes>
     </BrowserRouter>
   );
