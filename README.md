@@ -40,9 +40,7 @@ $ npm start
 
 ## 실행결과
 
-</br>
-
-<img src="https://user-images.githubusercontent.com/99943583/195349755-8e6d0b85-a0d5-4f3a-8b77-bc1300316b21.gif">
+<img src="https://user-images.githubusercontent.com/99943583/205880257-863106b8-c915-4e55-9785-95732fa2a775.gif">
 
 </br>
 
