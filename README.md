@@ -9,24 +9,23 @@
 
 ## 목차
 
-- [프로젝트의 실행](#프로젝트의실행)
-- [구현 목표](#구현목표)
 - [실행 결과](#실행결과)
+- [구현 사항](#구현목표)
 - [폴더 구조](#폴더구조)
-- [구현 사항](#구현사항)
+- [주요 기능](#구현사항)
+- [프로젝트의 실행](#프로젝트의실행)
 
 ---
 
 </br>
 
-## 프로젝트의실행
+## 실행결과
 
-```
-$ npm install
-$ npm start
-```
+<img src="https://user-images.githubusercontent.com/99943583/205880257-863106b8-c915-4e55-9785-95732fa2a775.gif">
 
-## 구현 목표
+<br>
+
+## 구현 사항
 
 - [x] 사용자가 검색한 텍스트와 일치하는 부분 볼드처리
 - [x] 검색어가 없을 시 “검색어 없음” 표출
@@ -35,12 +34,6 @@ $ npm start
 - [x] 캐싱 기능을 제공하는 라이브러리(React-Query)등을 사용 하지 않고 API 호출별로 로컬 캐싱 구현
 - [x] 키보드 만으로 추천검색으로 이동 구현
 - [x] API를 호출할 때 마다 console.info("calling api") 출력을 통해 콘솔창에서 API 호출 횟수 확인이 가능하도록 설정
-
-</br>
-
-## 실행결과
-
-<img src="https://user-images.githubusercontent.com/99943583/205880257-863106b8-c915-4e55-9785-95732fa2a775.gif">
 
 </br>
 
@@ -58,7 +51,7 @@ $ npm start
 
 </br>
 
-## 구현 사항
+## 주요 기능
 
 <br>
 
@@ -159,4 +152,11 @@ let recentArr = JSON.parse(localStorage.getItem('recentData')) || [];
       className="icon" icon={faMagnifyingGlass}/>
       <span className="text">{item}</span>
   </div>
+```
+
+## 프로젝트의실행
+
+```
+$ npm install
+$ npm start
 ```
