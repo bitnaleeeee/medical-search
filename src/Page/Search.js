@@ -13,8 +13,10 @@ const Search = () => {
 
   const getdata = params => {
     axios
-      .get(`/http://13.124.249.111:4000/sick?q=${params}`)
+      .get(`http://13.124.249.111:4000/sick?q=${params}`)
+
       .then(respon => {
+        console.log(respon);
         bold(respon, params);
         console.info('calling api');
       })
@@ -22,6 +24,7 @@ const Search = () => {
         console.log('fail');
       });
   };
+  // (`http://localhost:4000/sick?q=${params}`)
 
   const bold = (respon, params) => {
     let newData = [];
