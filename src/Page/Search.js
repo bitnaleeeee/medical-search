@@ -97,6 +97,7 @@ const Search = () => {
         </div>
         <div className="inputWrap">
           <input
+            type="text"
             className="inputBox"
             placeholder="질환명을 입력해주세요"
             onKeyUp={change}

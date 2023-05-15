@@ -13,10 +13,10 @@ body {
   height: 100%;
   padding-top: 120px;
   margin: 0 auto;
-  width: 400px;
+  width: 500px;
   .searchBox {
     .title {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: bold;
       line-height: 1.5;
       text-align: center;
@@ -27,10 +27,13 @@ body {
       display: flex;
       .inputBox {
         width: 100%;
-        height: 30px;
-        border-radius: 25px;
-        padding: 10px 38px;
+        height: 60px;
+        border-radius: 30px;
+        padding: 0 40px;
+        box-sizing: border-box;
+        border: none;
         font-size: 15px;
+        outline: none;
       }
       .iconStyle {
         color: rgb(146, 143, 143);
