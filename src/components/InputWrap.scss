@@ -1,0 +1,58 @@
+.searchWrap {
+  .searchBox {
+    .inputWrap {
+      position: relative;
+      display: flex;
+
+      .inputBox {
+        width: 100%;
+        border-radius: 35px;
+        padding: 20px 70px 20px 50px;
+        height: 70px;
+        box-sizing: border-box;
+        border: none;
+        font-size: 20px;
+        outline: none;
+      }
+
+      .iconSearch {
+        color: rgb(146, 143, 143);
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        font-size: 20px;
+      }
+
+      .searchBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 0;
+        border-radius: 50%;
+        border: none;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        background-color: #007be9;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      .deleteBtn {
+        position: absolute;
+        top: 50%;
+        right: 80px;
+        transform: translateY(-50%);
+        border: none;
+        background: none;
+        font-size: 22px;
+        cursor: pointer;
+        color: #999;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}

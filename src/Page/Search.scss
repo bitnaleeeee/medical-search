@@ -14,7 +14,7 @@ body {
   background-color: #cae9ff;
 
   .searchBox {
-    padding-top: 100px;
+    padding-top: 130px;
     margin: 0 auto;
     width: 500px;
 
@@ -23,46 +23,7 @@ body {
       font-weight: bold;
       line-height: 1.5;
       text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .inputWrap {
-      position: relative;
-      display: flex;
-
-      .inputBox {
-        width: 100%;
-        border-radius: 35px;
-        padding: 20px 70px 20px 50px;
-        height: 70px;
-        box-sizing: border-box;
-        border: none;
-        font-size: 20px;
-        outline: none;
-      }
-
-      .iconSearch {
-        color: rgb(146, 143, 143);
-        position: absolute;
-        top: 25px;
-        left: 20px;
-        font-size: 20px;
-      }
-
-      .searchBtn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        padding: 0;
-        border-radius: 50%;
-        border: none;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        background-color: #007be9;
-        font-size: 20px;
-        color: #fff;
-      }
+      margin-bottom: 50px;
     }
 
     .infoWrap {
@@ -83,8 +44,7 @@ body {
 
       .recentSearchText {
         margin: 15px 0;
-        border-bottom: 1px solid #ccc;
-        padding: 0 20px 15px;
+        padding: 0 20px;
         font-size: 18px;
 
         &.hidden {
@@ -128,6 +88,8 @@ body {
       }
 
       .searchResultList {
+        border-top: 1px solid #ccc;
+
         &.hidden {
           display: none;
         }
@@ -149,17 +111,13 @@ body {
           }
 
           strong {
-            background-color: #cae9ff;
+            background-color: yellow;
           }
 
           .icon {
             margin-right: 10px;
             color: #999;
           }
-        }
-
-        .on {
-          background-color: #f2f2f1;
         }
       }
 
@@ -177,6 +135,11 @@ body {
           margin: 15px 0;
           padding: 0 20px;
           color: #999;
+        }
+
+        .recentText {
+          padding: 10px 20px;
+          color: #ccc;
         }
 
         .item {
