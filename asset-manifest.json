@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/medical-search/static/css/main.9993dff5.css",
-    "main.js": "/medical-search/static/js/main.b87f258b.js",
+    "main.css": "/medical-search/static/css/main.2c1893cf.css",
+    "main.js": "/medical-search/static/js/main.d978c256.js",
     "index.html": "/medical-search/index.html",
-    "main.9993dff5.css.map": "/medical-search/static/css/main.9993dff5.css.map",
-    "main.b87f258b.js.map": "/medical-search/static/js/main.b87f258b.js.map"
+    "main.2c1893cf.css.map": "/medical-search/static/css/main.2c1893cf.css.map",
+    "main.d978c256.js.map": "/medical-search/static/js/main.d978c256.js.map"
   },
   "entrypoints": [
-    "static/css/main.9993dff5.css",
-    "static/js/main.b87f258b.js"
+    "static/css/main.2c1893cf.css",
+    "static/js/main.d978c256.js"
   ]
 }
