@@ -1,4 +1,4 @@
-# 질환명 검색시 API 호출 통해서 검색어 추천 기능 구현
+# 개인프로젝트: 질환명 검색시 API 호출 통해서 검색어 추천 기능 구현
 
 - ## 배포 링크 : [https://bitnaleeeee.github.io/medical-search/](https://bitnaleeeee.github.io/medical-search/)
 
